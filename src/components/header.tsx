@@ -2,14 +2,17 @@ import { Search, MessageSquare, Bell, ChevronDown } from "lucide-react"
 import { Button } from "@/components/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/avatar"
 import { Badge } from "@/components/badge"
+import { SidebarTrigger } from "@/components/sidebar"
+import Image from "next/image"
+import logo from "@/assets/logo.svg"
 
 export function Header() {
   return (
     <header className="flex items-center justify-between px-6 py-4">
       <div className="flex items-center space-x-3">
+        <SidebarTrigger className="md:hidden" />
         <div>
-          <h2 className="text-xl font-bold text-black">WeBook</h2>
-          <p className="text-sm text-gray-600 -mt-1">Guides</p>
+          <Image src={logo} alt="WeBook" height={32} width={135} />
         </div>
       </div>
 

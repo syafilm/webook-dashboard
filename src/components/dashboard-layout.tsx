@@ -14,6 +14,17 @@ import {
   Bell,
 } from "lucide-react"
 import { Header } from "./header"
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarProvider,
+  SidebarInset,
+} from "@/components/sidebar"
 
 const menuItems = [
   { icon: LayoutDashboard, label: "Dashboard", active: false },
@@ -37,35 +48,51 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
   const [activeItem, setActiveItem] = useState("Trip Listings")
   
   return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="bg-white border-b border-gray-200">
-        <Header />
-      </div>
-      <div className="flex">
-        <aside className="w-64 bg-white border-r border-gray-200 min-h-screen">
-          <nav className="p-4 space-y-2">
-            {menuItems.map((item) => {
-              const Icon = item.icon
-              const isActive = item.label === activeItem
+    <SidebarProvider>
+      <div className="min-h-screen bg-gray-100 w-full">
+        {/* Header spans full width */}
+        <div className="bg-white border-b border-gray-200 fixed top-0 left-0 right-0 z-40">
+          <Header />
+        </div>
+        
+        {/* Sidebar and content side by side below header */}
+        <div className="flex">
+          <Sidebar variant="sidebar" className="border-r border-gray-200 bg-white fixed top-[4.75rem] h-[calc(100vh-4.75rem)] hidden md:flex w-64">
+            <SidebarContent className="bg-white p-4">
+              <SidebarGroup className="space-y-2">
+                <SidebarGroupContent>
+                  <SidebarMenu className="space-y-2">
+                    {menuItems.map((item) => {
+                      const Icon = item.icon
+                      const isActive = item.label === activeItem
 
-              return (
-                <button
-                  key={item.label}
-                  onClick={() => setActiveItem(item.label)}
-                  className={cn(
-                    "w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-left transition-colors",
-                    isActive ? "bg-black text-white" : "text-gray-600 hover:bg-gray-100",
-                  )}
-                >
-                  <Icon className="h-5 w-5" />
-                  <span className="font-medium">{item.label}</span>
-                </button>
-              )
-            })}
-          </nav>
-        </aside>
-        <main className={`flex-1 bg-gray-100 ${isManagePackagePage ? 'pt-0' : 'p-6'}`}>{children}</main>
+                      return (
+                        <SidebarMenuItem key={item.label}>
+                          <SidebarMenuButton 
+                            onClick={() => setActiveItem(item.label)}
+                            className={cn(
+                              "w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-left transition-colors font-medium [&>svg]:!size-5",
+                              isActive ? "!bg-black !text-white hover:!bg-black" : "text-gray-600 hover:bg-gray-100",
+                            )}
+                            isActive={isActive}
+                          >
+                            <Icon className="h-5 w-5" />
+                            <span className="font-medium">{item.label}</span>
+                          </SidebarMenuButton>
+                        </SidebarMenuItem>
+                      )
+                    })}
+                  </SidebarMenu>
+                </SidebarGroupContent>
+              </SidebarGroup>
+            </SidebarContent>
+          </Sidebar>
+          
+          <main className="flex-1 bg-gray-100 pt-[4.75rem]">
+            {children}
+          </main>
+        </div>
       </div>
-    </div>
+    </SidebarProvider>
   )
 }

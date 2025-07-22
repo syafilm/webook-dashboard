@@ -11,7 +11,7 @@ const listings = [
     lastUpdated: "July 10, 2025",
     avgRating: 4.9,
     reviewCount: 237,
-    statusColor: "bg-yellow-100 text-yellow-800",
+    statusColor: "bg-yellow-100 text-yellow-800 hover:bg-yellow-200",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const listings = [
     lastUpdated: "July 10, 2025",
     avgRating: 4.9,
     reviewCount: 237,
-    statusColor: "bg-green-100 text-green-800",
+    statusColor: "bg-green-100 text-green-800 hover:bg-green-200",
   },
   {
     id: 3,
@@ -31,13 +31,13 @@ const listings = [
     lastUpdated: "July 10, 2025",
     avgRating: 4.9,
     reviewCount: 237,
-    statusColor: "bg-gray-100 text-gray-800",
+    statusColor: "bg-gray-100 text-gray-800 hover:bg-gray-200",
   },
 ]
 
 export function TripListings() {
   return (
-    <div className="space-y-6">
+    <div className="min-h-screen p-6 space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-gray-900">Trip Listings</h1>
         <div className="flex items-center space-x-3">

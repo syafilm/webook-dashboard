@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/card"
+import { Card, CardContent, } from "@/components/card"
 import { Input } from "@/components/input"
 import { Label } from "@/components/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/select"
@@ -73,7 +73,7 @@ export function ManagePackageForm() {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href="/listings">Listings</BreadcrumbLink>
+              <BreadcrumbLink href="/">Listings</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
