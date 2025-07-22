@@ -68,14 +68,8 @@ export function ManagePackageForm() {
   }
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="bg-gray-900 text-white px-6 py-8 -mx-6 -mt-6">
-        <h1 className="text-4xl font-bold">Manage Package</h1>
-      </div>
-
-      {/* Breadcrumb */}
-      <div className="px-6">
+    <div>
+      <div className="px-6 py-3 bg-white">
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
@@ -93,7 +87,17 @@ export function ManagePackageForm() {
         </Breadcrumb>
       </div>
 
-      <div className="flex gap-6">
+      <div className="px-6 pb-3 pt-3">
+        <div className="flex items-center justify-between">
+          <h1 className="text-2xl font-bold text-gray-900">Manage Packages</h1>
+          <div className="flex gap-2">
+            <Button className="bg-black hover:bg-gray-800 text-white rounded-[30px]">Delete</Button>
+            <Button variant="outline" className="rounded-[30px]">Save & exit</Button>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex gap-6 px-6 pb-6">
         {/* Step Navigation */}
         <div className="w-80">
           <StepNavigation steps={steps} />
@@ -102,13 +106,6 @@ export function ManagePackageForm() {
         {/* Main Form */}
         <div className="flex-1">
           <Card>
-            <CardHeader className="flex flex-row items-center justify-between">
-              <CardTitle className="text-2xl">Manage Packages</CardTitle>
-              <div className="flex gap-2">
-                <Button variant="outline">Delete</Button>
-                <Button variant="outline">Save & exit</Button>
-              </div>
-            </CardHeader>
             <CardContent className="space-y-8">
               {/* Form Header */}
               <div>
@@ -127,7 +124,7 @@ export function ManagePackageForm() {
                   id="charterName"
                   value={formData.charterName}
                   onChange={(e) => handleInputChange("charterName", e.target.value)}
-                  className="max-w-md"
+                  className="w-full"
                 />
               </div>
 
@@ -211,9 +208,9 @@ export function ManagePackageForm() {
                   <p className="text-sm text-gray-600">(Multi-Checkbox)</p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="flex flex-wrap gap-4">
                   {amenities.map((amenity) => (
-                    <div key={amenity.id} className="flex items-center space-x-2">
+                    <div key={amenity.id} className="inline-flex items-center space-x-2">
                       <Checkbox
                         id={amenity.id}
                         checked={formData.amenities[amenity.id]}
@@ -229,13 +226,11 @@ export function ManagePackageForm() {
 
               {/* Navigation Buttons */}
               <div className="flex justify-between pt-6">
-                <Button variant="outline" className="flex items-center gap-2 bg-transparent">
-                  <ChevronLeft className="h-4 w-4" />
+                <Button variant="outline" className="bg-transparent rounded-[30px]">
                   Back
                 </Button>
-                <Button className="flex items-center gap-2 bg-black hover:bg-gray-800">
+                <Button className="bg-black hover:bg-gray-800 rounded-[30px]">
                   Next
-                  <ChevronRight className="h-4 w-4" />
                 </Button>
               </div>
             </CardContent>

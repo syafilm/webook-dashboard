@@ -1,4 +1,4 @@
-import { MoreHorizontal, MapPin, Star } from "lucide-react"
+import { MoreVertical, MapPin, Star } from "lucide-react"
 import { Button } from "@/components/button"
 import { Card, CardContent, CardHeader } from "@/components/card"
 import { Badge } from "@/components/badge"
@@ -25,7 +25,7 @@ export function ListingCard({ listing }: ListingCardProps) {
         <div className="flex items-start justify-between">
           <Badge className={`${listing.statusColor} border-0 font-medium`}>{listing.status}</Badge>
           <Button variant="ghost" size="icon" className="h-8 w-8">
-            <MoreHorizontal className="h-4 w-4" />
+            <MoreVertical className="h-4 w-4" />
           </Button>
         </div>
       </CardHeader>
@@ -45,21 +45,21 @@ export function ListingCard({ listing }: ListingCardProps) {
 
         <div className="grid grid-cols-2 gap-4 text-sm">
           <div>
-            <p className="text-gray-500 font-medium">Last Updated</p>
-            <p className="text-gray-900">{listing.lastUpdated}</p>
+            <p className="text-gray-900 font-bold">Last Updated</p>
+            <p className="text-gray-500">{listing.lastUpdated}</p>
           </div>
           <div>
-            <p className="text-gray-500 font-medium">Avg Rating</p>
+            <p className="text-gray-900 font-bold">Avg Rating</p>
             <div className="flex items-center space-x-1">
+              <span className="text-gray-500 font-medium">{listing.avgRating}</span>
               <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-              <span className="text-gray-900 font-medium">{listing.avgRating}</span>
               <span className="text-gray-500">({listing.reviewCount} reviews)</span>
             </div>
           </div>
         </div>
 
         <Link href="/manage-package">
-          <Button variant="outline" className="w-full bg-transparent">
+          <Button variant="outline" className="w-full bg-transparent rounded-[30px] mt-6">
             Manage Package
           </Button>
         </Link>

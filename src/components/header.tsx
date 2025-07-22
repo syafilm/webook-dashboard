@@ -7,11 +7,6 @@ export function Header() {
   return (
     <header className="flex items-center justify-between px-6 py-4">
       <div className="flex items-center space-x-3">
-        <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
-          <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
-            <div className="w-3 h-3 bg-black rounded-full"></div>
-          </div>
-        </div>
         <div>
           <h2 className="text-xl font-bold text-black">WeBook</h2>
           <p className="text-sm text-gray-600 -mt-1">Guides</p>

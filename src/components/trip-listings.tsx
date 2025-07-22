@@ -41,11 +41,11 @@ export function TripListings() {
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-gray-900">Trip Listings</h1>
         <div className="flex items-center space-x-3">
-          <Button variant="outline" className="flex items-center space-x-2 bg-transparent">
+          <Button variant="outline" className="flex items-center space-x-2 bg-transparent rounded-[30px]">
             <Filter className="h-4 w-4" />
             <span>Filter</span>
           </Button>
-          <Button className="flex items-center space-x-2 bg-black hover:bg-gray-800">
+          <Button className="flex items-center space-x-2 bg-black hover:bg-gray-800 rounded-[30px]">
             <Plus className="h-4 w-4" />
             <span>Create Listing</span>
           </Button>
