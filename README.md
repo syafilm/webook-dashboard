@@ -1,5 +1,5 @@
 Install and run
 
-`Bun install`
+`bun install`
 
-`Bun dev`
+`bun dev`
